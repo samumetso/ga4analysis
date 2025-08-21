@@ -1,0 +1,160 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Hotel Haven - Internal Traffic Konfigurointi
+Miten GA4:ssä määritellään mikä on sisäistä liikennettä
+"""
+
+def internal_traffic_configuration():
+    """Selittää miten Internal Traffic määritellään GA4:ssä"""
+    
+    print("🔧 MITEN INTERNAL TRAFFIC MÄÄRITELLÄÄN GA4:SSÄ?")
+    print("=" * 80)
+    print()
+    
+    print("📍 GA4 EI TIEDÄ AUTOMAATTISESTI MIKÄ ON SISÄISTÄ!")
+    print("-" * 60)
+    print("• GA4 ei osaa 'arvata' mikä liikenne on sisäistä")
+    print("• KAIKKI on määriteltävä manuaalisesti")
+    print("• Jos ei ole määritelty → EI ole Internal Traffic:ia")
+    print("• Tyhjä konfiguraatio = ei suodatusta")
+    print()
+    
+    print("🎯 MITEN MÄÄRITTELY TEHDÄÄN:")
+    print("-" * 35)
+    print()
+    
+    print("VAIHE 1: MENE GA4 ADMIN-ASETUKSIIN")
+    print("1. GA4 → Admin (hammasratas-ikoni)")
+    print("2. Valitse oikea Property (Hotel Haven)")
+    print("3. Property-sarakkeessa: 'Data Settings' → 'Data Filters'")
+    print("4. Näet listan suodattimista")
+    print()
+    
+    print("VAIHE 2: INTERNAL TRAFFIC FILTER")
+    print("• Pitäisi näkyä 'Internal Traffic' -niminen suodatin")
+    print("• Jos EI näy → ei ole määritelty sisäistä liikennettä")
+    print("• Jos näkyy → klikkaa sitä nähdäksesi asetukset")
+    print()
+    
+    print("🔍 MITÄ INTERNAL TRAFFIC FILTER SISÄLTÄÄ:")
+    print("-" * 50)
+    print()
+    
+    print("1. 📍 IP-OSOITTEET (YLEISIN TAPA)")
+    print("   MÄÄRITTELYMUODOT:")
+    print("   • Yksittäinen IP: 192.168.1.100")
+    print("   • IP-alue: 192.168.1.0/24 (koko verkko)")
+    print("   • Useita IP:itä: 10.0.0.1, 203.0.113.5")
+    print("   • Regex-kuvio: ^192\\.168\\.*")
+    print()
+    print("   ESIMERKKEJÄ:")
+    print("   • Toimiston kiinteä IP: 203.0.113.50")
+    print("   • Koko toimiston verkko: 192.168.0.0/16")
+    print("   • VPN-palvelimen IP: 10.8.0.1")
+    print("   • Kehittäjien kotiIP:t: 85.76.X.X")
+    print()
+    
+    print("2. 🏷️ CUSTOM PARAMETERS (HARVINAISEMPI)")
+    print("   • URL-parametrit: ?internal=true")
+    print("   • Custom dimensiot: user_type = 'employee'")
+    print("   • Erikoistagit sivustolla")
+    print()
+    
+    print("3. 🔧 USER-ID PERUSTEELLA (EDISTYNYT)")
+    print("   • Tietyt käyttäjätunnukset")
+    print("   • Google Workspace -tilit")
+    print("   • Sisäiset käyttäjäryhmät")
+    print()
+    
+    print("⚙️ SUODATTIMEN TILAT:")
+    print("-" * 25)
+    print()
+    
+    print("🧪 TESTING MODE:")
+    print("• Sisäinen liikenne NÄKYY raporteissa")
+    print("• Mutta se on MERKITTY sisäiseksi")
+    print("• Voit nähdä paljonko sisäistä liikennettä on")
+    print("• EI suodata pois dataa")
+    print()
+    
+    print("✅ ACTIVE MODE:")
+    print("• Sisäinen liikenne SUODATETAAN POIS")
+    print("• Ei näy raporteissa ollenkaan")
+    print("• 'Puhdas' data ilman sisäistä liikennettä")
+    print("• Normaali käyttötila")
+    print()
+    
+    print("🚨 KRIITTINEN YMMÄRRYS:")
+    print("-" * 30)
+    print()
+    print("JOS INTERNAL TRAFFIC FILTER EI OLE MÄÄRITELTY:")
+    print("• GA4 EI TUNNISTA mitään sisäiseksi liikenteeksi")
+    print("• KAIKKI liikenne käsitellään ulkoisena")
+    print("• Ei ole eroa GA4 UI:n ja MCP:n välillä")
+    print()
+    print("JOS ON MÄÄRITELTY TESTING-TILASSA:")
+    print("• GA4 UI saattaa näyttää sisäisen liikenteen")
+    print("• MCP API näkee kaiken (ei osaa suodattaa)")
+    print("• TÄMÄ VOISI SELITTÄÄ ERON!")
+    print()
+    
+    print("JOS ON MÄÄRITELTY ACTIVE-TILASSA:")
+    print("• GA4 UI suodattaa sisäisen liikenteen pois")
+    print("• MCP API saattaa nähdä raakaversion")
+    print("• TÄMÄ SELITTÄISI ERON VARMASTI!")
+    print()
+    
+    print("🔍 HOTEL HAVENIN TILANNE:")
+    print("-" * 35)
+    print()
+    print("SINÄ SANOIT: 'Data filtereitä ei ole kuin Internal Traffic testing moodissa'")
+    print()
+    print("TÄMÄ TARKOITTAA:")
+    print("• ✅ Internal Traffic filter ON määritelty")
+    print("• ✅ Se on TESTING-tilassa")
+    print("• ✅ Sisäinen liikenne NÄKYY datassa")
+    print("• ✅ Mutta on merkitty sisäiseksi")
+    print()
+    
+    print("TÄMÄ SELITTÄÄ ERON!")
+    print("• GA4 UI: Osaa käsitellä 'testing' merkinnän")
+    print("• MCP API: Ei välttämättä osaa suodattaa")
+    print("• TULOS: MCP näkee enemmän dataa")
+    print()
+    
+    print("🎯 MITÄ TARKISTAA SEURAAVAKSI:")
+    print("-" * 40)
+    print()
+    print("1. INTERNAL TRAFFIC FILTERIN YKSITYISKOHDAT:")
+    print("   • Klikkaa Internal Traffic filteriä GA4:ssä")
+    print("   • Katso 'Filter Settings'")
+    print("   • Mitkä IP-osoitteet on määritelty?")
+    print("   • Kuinka laaja alue?")
+    print()
+    
+    print("2. TESTAA FILTERIN VAIKUTUS:")
+    print("   • Vaihda filter TESTING → ACTIVE")
+    print("   • Katso muuttuvatko Room-raportin luvut")
+    print("   • Jos muuttuvat → löysimme syyn!")
+    print()
+    
+    print("3. VERTAA IP-OSOITTEITA:")
+    print("   • Mistä IP-osoitteista €11,825 revenue tulee?")
+    print("   • Ovatko ne samoja kuin filterissä määritellyt?")
+    print()
+    
+    print("💡 TODENNÄKÖINEN SELITYS:")
+    print("-" * 35)
+    print()
+    print("Hotel Havenilla ON määritelty Internal Traffic filter,")
+    print("mutta se on TESTING-tilassa.")
+    print()
+    print("GA4 UI osaa käsitellä tämän oikein,")
+    print("mutta MCP API ei välttämättä.")
+    print()
+    print("RATKAISU: Vaihda filter ACTIVE-tilaan")
+    print("tai ota huomioon sisäinen liikenne analyyseissa.")
+
+if __name__ == "__main__":
+    internal_traffic_configuration()
